@@ -3,128 +3,130 @@
 <% end %>
 
 <% content_for :body do %>
+<section>
+  <h4>Naam</h4>
+  <p>
+    <%=raw @activity.naam %>
+  </p>
+</section>
   <section>
-    <h1>Profiel</h1>
+    <h4>Profiel</h4>
     <p>
-      <%=raw @activity.profiel %>
+		<ul>
+	      <% @activity.profiles.each do |p| %>
+			<li><%= p.name %></li>
+		  <% end %>	
+		</ul>
     </p>
   </section>
   <section>
-    <h1>Naam</h1>
+    <h4>Coverfoto</h4>
     <p>
-      <%=raw @activity.naam %>
+      <%= image_fu @activity.coverfoto, "400x" %>
     </p>
   </section>
   <section>
-    <h1>Coverfoto</h1>
-    <p>
-      <%= image_fu @activity.coverfoto, nil %>
-    </p>
-  </section>
-  <section>
-    <h1>Beschrijving</h1>
+    <h4>Beschrijving</h4>
     <p>
       <%=raw @activity.beschrijving %>
     </p>
   </section>
   <section>
-    <h1>Adres</h1>
+    <h4>Adres</h4>
     <p>
       <%=raw @activity.adres %>
     </p>
   </section>
   <section>
-    <h1>Postcode</h1>
+    <h4>Postcode</h4>
     <p>
       <%=raw @activity.postcode %>
     </p>
   </section>
   <section>
-    <h1>Woonplaats</h1>
+    <h4>Woonplaats</h4>
     <p>
       <%=raw @activity.woonplaats %>
     </p>
   </section>
   <section>
-    <h1>Contact</h1>
+    <h4>Contact</h4>
     <p>
       <%=raw @activity.contact %>
     </p>
   </section>
   <section>
-    <h1>Sitelink</h1>
+    <h4>Sitelink</h4>
     <p>
       <%=raw @activity.sitelink %>
     </p>
   </section>
   <section>
-    <h1>Openingstijden</h1>
+    <h4>Openingstijden</h4>
     <p>
       <%=raw @activity.openingstijden %>
     </p>
   </section>
   <section>
-    <h1>Hoofddoelgroep</h1>
+    <h4>Doelgroepen</h4>
     <p>
-      <%=raw @activity.hoofddoelgroep %>
+		<ul>
+	      <% @activity.targetgroups.each do |t| %>
+			<li><%= t.name %></li>
+		  <% end %>	
+		</ul>
     </p>
   </section>
   <section>
-    <h1>Grootte</h1>
+    <h4>Grootte</h4>
     <p>
       <%=raw @activity.grootte %>
     </p>
   </section>
   <section>
-    <h1>Gemiddeld Aantal Clienten</h1>
+    <h4>Gemiddeld Aantal Clienten</h4>
     <p>
       <%=raw @activity.gemiddeld_aantal_clienten %>
     </p>
   </section>
   <section>
-    <h1>Leeftijd Van</h1>
+    <h4>Leeftijd</h4>
     <p>
-      <%=raw @activity.leeftijd_van %>
+      van <%=raw @activity.leeftijd_van %> tot <%=raw @activity.leeftijd_tot %>
     </p>
   </section>
   <section>
-    <h1>Leeftijd Tot</h1>
-    <p>
-      <%=raw @activity.leeftijd_tot %>
-    </p>
-  </section>
-  <section>
-    <h1>Voorwaarden</h1>
+    <h4>Voorwaarden</h4>
     <p>
       <%=raw @activity.voorwaarden %>
     </p>
   </section>
   <section>
-    <h1>Rolstoelvriendelijk</h1>
+    <h4>Rolstoelvriendelijk</h4>
     <p>
       <%=raw @activity.rolstoelvriendelijk %>
     </p>
   </section>
   <section>
-    <h1>Fysieke Toegankelijkheid</h1>
+    <h4>Fysieke Toegankelijkheid</h4>
     <p>
       <%=raw @activity.fysieke_toegankelijkheid %>
     </p>
   </section>
   <section>
-    <h1>Benodigde Indicatie</h1>
+    <h4>Benodigde Indicatie</h4>
     <p>
       <%=raw @activity.benodigde_indicatie %>
     </p>
   </section>
   <section>
-    <h1>Spelregels Vervoer</h1>
+    <h4>Spelregels Vervoer</h4>
     <p>
       <%=raw @activity.spelregels_vervoer %>
     </p>
   </section>
   <section>
-    <h1>Tags</h1>
+    <h4>Tags</h4>
     <p>
       <%=raw @activity.tags %>
     </p>
@@ -137,7 +139,7 @@
     <ul id="activities">
       <% @activities.each do |activity| %>
         <li>
-          <%= link_to activity.profiel, refinery.activities_activity_path(activity) %>
+          <%= link_to activity.naam, refinery.activities_activity_path(activity) %>
         </li>
       <% end %>
     </ul>
