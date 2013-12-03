@@ -1,0 +1,48 @@
+es:
+  refinery:
+    plugins:
+      activities:
+        title: Activities
+#        article: masculino/femenino
+    activities:
+      admin:
+        activities:
+          actions:
+            create_new: Crear nuevo activity
+            reorder: Reordenar activities
+            reorder_done: Reordenación de activities completada
+          records:
+            title: Activities
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay activities todavía. Pulsa en "Crear nuevo Activity" para crear tu primer activity.
+          activity:
+            view_live_html: Ver este activity como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este activity
+            delete: Borrar este activity para siempre
+      activities:
+        show:
+          other: Otros activities
+  activerecord:
+    attributes:
+      'refinery/activities/activity':
+        profiel: Profiel
+        naam: Naam
+        coverfoto: Coverfoto
+        beschrijving: Beschrijving
+        adres: Adres
+        postcode: Postcode
+        woonplaats: Woonplaats
+        contact: Contact
+        sitelink: Sitelink
+        openingstijden: Openingstijden
+        hoofddoelgroep: Hoofddoelgroep
+        grootte: Grootte
+        gemiddeld_aantal_clienten: Gemiddeld Aantal Clienten
+        leeftijd_van: Leeftijd Van
+        leeftijd_tot: Leeftijd Tot
+        voorwaarden: Voorwaarden
+        rolstoelvriendelijk: Rolstoelvriendelijk
+        fysieke_toegankelijkheid: Fysieke Toegankelijkheid
+        benodigde_indicatie: Benodigde Indicatie
+        spelregels_vervoer: Spelregels Vervoer
+        tags: Tags

@@ -1,0 +1,47 @@
+nl:
+  refinery:
+    plugins:
+      activities:
+        title: Activities
+    activities:
+      admin:
+        activities:
+          actions:
+            create_new: Nieuwe Activity toevoegen
+            reorder: De volgorde van de Activities wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Activity-volgorde
+          records:
+            title: Activities
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Activities. Druk op 'Nieuwe Activity toevoegen' om de eerste toe te voegen.
+          activity:
+            view_live_html: Deze activity op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze activity
+            delete: Deze activity definitief verwijderen
+      activities:
+        show:
+          other: Andere Activities
+  activerecord:
+    attributes:
+      'refinery/activities/activity':
+        profiel: Profiel
+        naam: Naam
+        coverfoto: Coverfoto
+        beschrijving: Beschrijving
+        adres: Adres
+        postcode: Postcode
+        woonplaats: Woonplaats
+        contact: Contact
+        sitelink: Sitelink
+        openingstijden: Openingstijden
+        hoofddoelgroep: Hoofddoelgroep
+        grootte: Grootte
+        gemiddeld_aantal_clienten: Gemiddeld Aantal Clienten
+        leeftijd_van: Leeftijd Van
+        leeftijd_tot: Leeftijd Tot
+        voorwaarden: Voorwaarden
+        rolstoelvriendelijk: Rolstoelvriendelijk
+        fysieke_toegankelijkheid: Fysieke Toegankelijkheid
+        benodigde_indicatie: Benodigde Indicatie
+        spelregels_vervoer: Spelregels Vervoer
+        tags: Tags

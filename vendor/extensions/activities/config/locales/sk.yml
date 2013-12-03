@@ -1,0 +1,47 @@
+sk:
+  refinery:
+    plugins:
+      activities:
+        title: Activities
+    activities:
+      admin:
+        activities:
+          actions:
+            create_new: Pridať Activity
+            reorder: Preusporiadať Activities
+            reorder_done: Koniec radenia Activities
+          records:
+            title: Activities
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Activities. Kliknite na "Pridať Activity" pre pridanie prvého activity.
+          activity:
+            view_live_html: Zobraziť náhľad activity<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť activity
+            delete: Zmazať activity
+      activities:
+        show:
+          other: Daľšie Activities
+  activerecord:
+    attributes:
+      'refinery/activities/activity':
+        profiel: Profiel
+        naam: Naam
+        coverfoto: Coverfoto
+        beschrijving: Beschrijving
+        adres: Adres
+        postcode: Postcode
+        woonplaats: Woonplaats
+        contact: Contact
+        sitelink: Sitelink
+        openingstijden: Openingstijden
+        hoofddoelgroep: Hoofddoelgroep
+        grootte: Grootte
+        gemiddeld_aantal_clienten: Gemiddeld Aantal Clienten
+        leeftijd_van: Leeftijd Van
+        leeftijd_tot: Leeftijd Tot
+        voorwaarden: Voorwaarden
+        rolstoelvriendelijk: Rolstoelvriendelijk
+        fysieke_toegankelijkheid: Fysieke Toegankelijkheid
+        benodigde_indicatie: Benodigde Indicatie
+        spelregels_vervoer: Spelregels Vervoer
+        tags: Tags

@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="activities">
+    <% @activities.each do |activity| %>
+      <li>
+        <%= link_to activity.naam, refinery.activities_activity_path(activity) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

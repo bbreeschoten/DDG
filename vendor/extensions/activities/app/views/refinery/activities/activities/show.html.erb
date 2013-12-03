@@ -1,0 +1,147 @@
+<% content_for :body_content_title do %>
+  <%= @activity.naam %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Profiel</h1>
+    <p>
+      <%=raw @activity.profiel %>
+    </p>
+  </section>
+  <section>
+    <h1>Naam</h1>
+    <p>
+      <%=raw @activity.naam %>
+    </p>
+  </section>
+  <section>
+    <h1>Coverfoto</h1>
+    <p>
+      <%= image_fu @activity.coverfoto, nil %>
+    </p>
+  </section>
+  <section>
+    <h1>Beschrijving</h1>
+    <p>
+      <%=raw @activity.beschrijving %>
+    </p>
+  </section>
+  <section>
+    <h1>Adres</h1>
+    <p>
+      <%=raw @activity.adres %>
+    </p>
+  </section>
+  <section>
+    <h1>Postcode</h1>
+    <p>
+      <%=raw @activity.postcode %>
+    </p>
+  </section>
+  <section>
+    <h1>Woonplaats</h1>
+    <p>
+      <%=raw @activity.woonplaats %>
+    </p>
+  </section>
+  <section>
+    <h1>Contact</h1>
+    <p>
+      <%=raw @activity.contact %>
+    </p>
+  </section>
+  <section>
+    <h1>Sitelink</h1>
+    <p>
+      <%=raw @activity.sitelink %>
+    </p>
+  </section>
+  <section>
+    <h1>Openingstijden</h1>
+    <p>
+      <%=raw @activity.openingstijden %>
+    </p>
+  </section>
+  <section>
+    <h1>Hoofddoelgroep</h1>
+    <p>
+      <%=raw @activity.hoofddoelgroep %>
+    </p>
+  </section>
+  <section>
+    <h1>Grootte</h1>
+    <p>
+      <%=raw @activity.grootte %>
+    </p>
+  </section>
+  <section>
+    <h1>Gemiddeld Aantal Clienten</h1>
+    <p>
+      <%=raw @activity.gemiddeld_aantal_clienten %>
+    </p>
+  </section>
+  <section>
+    <h1>Leeftijd Van</h1>
+    <p>
+      <%=raw @activity.leeftijd_van %>
+    </p>
+  </section>
+  <section>
+    <h1>Leeftijd Tot</h1>
+    <p>
+      <%=raw @activity.leeftijd_tot %>
+    </p>
+  </section>
+  <section>
+    <h1>Voorwaarden</h1>
+    <p>
+      <%=raw @activity.voorwaarden %>
+    </p>
+  </section>
+  <section>
+    <h1>Rolstoelvriendelijk</h1>
+    <p>
+      <%=raw @activity.rolstoelvriendelijk %>
+    </p>
+  </section>
+  <section>
+    <h1>Fysieke Toegankelijkheid</h1>
+    <p>
+      <%=raw @activity.fysieke_toegankelijkheid %>
+    </p>
+  </section>
+  <section>
+    <h1>Benodigde Indicatie</h1>
+    <p>
+      <%=raw @activity.benodigde_indicatie %>
+    </p>
+  </section>
+  <section>
+    <h1>Spelregels Vervoer</h1>
+    <p>
+      <%=raw @activity.spelregels_vervoer %>
+    </p>
+  </section>
+  <section>
+    <h1>Tags</h1>
+    <p>
+      <%=raw @activity.tags %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="activities">
+      <% @activities.each do |activity| %>
+        <li>
+          <%= link_to activity.profiel, refinery.activities_activity_path(activity) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

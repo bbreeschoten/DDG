@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+	<div class="contain-to-grid">
+		<nav class="top-bar" data-topbar>
+			<ul class="title-area">
+			    <li class="name">
+			    <h1><a href="/">Dagbesteding Gids</a></h1>
+			    </li>
+			    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+			<!-- start urb_menu -->
+			<%=
+			    zurb_menu.to_html
+			%>
+			<!-- Right Nav Section -->
+		    <ul class="right">
+		      <li class="active"><%= link_to "Login", refinery.login_path %></li>
+		    </ul>
+		    
+		</nav>
+	</div>	
+	<!-- start yield" -->
+    <%= yield %>
+	<!-- end yield -->
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

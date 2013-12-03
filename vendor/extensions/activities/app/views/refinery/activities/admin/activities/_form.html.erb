@@ -1,0 +1,112 @@
+<%= form_for [refinery, :activities_admin, @activity] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @activity,
+              :include_object_name => true %>
+
+	<div class='field'>
+	  <%= f.label :naam -%>
+	  <%= f.text_field :naam, :class => 'larger widest' -%>
+	</div>
+
+	<div class="field">
+	  <%= f.label :profielen -%>	
+	  <%= hidden_field_tag "activity[profile_ids][]", nil%>
+	    <% Profile.all.each do |profile| %>
+	    	<%= check_box_tag "activity[profile_ids][]", profile.id, @activity.profile_ids.include?(profile.id), id: dom_id(profile) %>
+			<%= label_tag dom_id(profile), profile.name, :style => "display:inline" %><br/>
+		<% end %>
+	</div>
+	
+
+  <div class='field'>
+    <%= f.label :coverfoto -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :coverfoto_id,
+               :image => @activity.coverfoto,
+               :toggle_image_display => false -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:beschrijving, :contact, :openingstijden, :voorwaarden, :fysieke_toegankelijkheid, :spelregels_vervoer],
+                :object => "activities/activity" -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :adres -%>
+    <%= f.text_field :adres, :size => '70' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :postcode -%>
+    <%= f.text_field :postcode, :size => '7' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :woonplaats -%>
+    <%= f.text_field :woonplaats, :size => '40' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :link_naar_de_website -%>
+    <%= f.text_field :sitelink, :size => '70' -%>
+  </div>
+
+  <div class='field'>
+	  <%= f.label :doelgroepen -%>
+	  <%= hidden_field_tag "activity[targetgroup_ids][]", nil%>
+	    <% Targetgroup.all.each do |targetgroup| %>
+	    	<%= check_box_tag "activity[targetgroup_ids][]", targetgroup.id, @activity.targetgroup_ids.include?(targetgroup.id), id: dom_id(targetgroup) %>
+			<%= label_tag dom_id(targetgroup), targetgroup.name, :style => "display:inline" %><br/>
+		<% end %>
+	</div>
+
+  <div class='field'>
+    <%= f.label :grootte -%>
+    <%= f.text_field :grootte, :size => '4' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :gemiddeld_aantal_clienten -%>
+    <%= f.number_field :gemiddeld_aantal_clienten, :sze => '4' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :leeftijd_van_de_clienten -%>
+	van
+    <%= f.number_field :leeftijd_van, :size => '2' -%>
+    tot
+    <%= f.number_field :leeftijd_tot, :size => '2' -%>
+	jaar.
+  </div>
+
+  <div class='field'>
+    <%= f.label :rolstoelvriendelijk -%>
+    <%= f.check_box :rolstoelvriendelijk, :checked => @activity[:rolstoelvriendelijk] -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :benodigde_indicatie -%>
+    <%= f.text_field :benodigde_indicatie, :size => '8' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :tags -%>
+    <%= f.text_field :tags, :size => '50' -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.activities.admin.activities.activity'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @activity.profiel) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>
