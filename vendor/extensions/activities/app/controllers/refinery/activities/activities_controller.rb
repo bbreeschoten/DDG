@@ -22,7 +22,16 @@ module Refinery
     protected
 
       def find_all_activities
-        @activities = Activity.order('position ASC')
+        @search = Activity.search do
+          fulltext params[:search]
+          with(:publiceren, true)
+          facet :profile_ids
+          with(:profile_ids, params[:profile]) if params[:profile].present?
+          facet :targetgroup_ids
+          with(:targetgroup_ids, params[:targetgroup]) if params[:targetgroup].present?
+          
+        end
+        @activities = @search.results      
       end
 
       def find_page

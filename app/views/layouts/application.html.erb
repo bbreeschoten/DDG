@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Dagbestedinggids NH-N" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -20,14 +20,32 @@
 			    </li>
 			    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
-			<!-- start urb_menu -->
-			<%=
-			    zurb_menu.to_html
-			%>
-			<!-- Right Nav Section -->
-		    <ul class="right">
-		      <li class="active"><%= link_to "Login", refinery.login_path %></li>
-		    </ul>
+			<section class="top-bar-section">
+				<!-- start zurb_menu -->
+				<%=
+				    zurb_menu.to_html
+				%>
+				<!-- Right Nav Section -->
+
+			    <ul class="right">
+					<li class="has-form">
+						<%= form_tag refinery.activities_activities_path, :method => :get, :id => 'search_form' do %>
+					  <div class="row collapse">
+						    <div class="large-8 small-9 columns">
+							  <%= text_field_tag :search, params[:search], :placeholder => "zoek activiteit..." %>	
+						    </div>
+						    <div class="large-4 small-3 columns">
+							  <a href="javascript:$('#search_form').submit();" class="button active expand">Zoek</a>	
+						    </div>
+
+					  </div>
+											<% end %>
+					</li>
+					<li class="divider"></li>				
+			        <li class=""><%= link_to "Login", refinery.login_path %></li>
+			    </ul>
+			
+			</section>
 		    
 		</nav>
 	</div>	

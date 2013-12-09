@@ -1,11 +1,17 @@
+
 <% content_for :body do %>
-  <ul id="activities">
-    <% @activities.each do |activity| %>
-      <li>
-        <%= link_to activity.naam, refinery.activities_activity_path(activity) %>
-      </li>
-    <% end %>
-  </ul>
+	<div class="row">
+
+	        <div class="small-12 medium-9 large-9 columns">
+			    <% @activities.each do |activity| %>
+					  <%= render 'activity_list_item', :activity => activity %>
+			    <% end %>
+			</div>
+		
+			<div class="right hide-for-small medium-3 large-3 columns">
+				<%= render 'searchpanel'%>
+			</div>
+	</div>
 <% end %>
 
-<%= render '/refinery/content_page' %>
+<%= render '/refinery/content_page' %> 

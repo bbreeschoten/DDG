@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131203144310) do
+ActiveRecord::Schema.define(:version => 20131206111027) do
 
   create_table "profiles", :force => true do |t|
     t.string   "name"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20131203144310) do
   end
 
   create_table "refinery_activities", :force => true do |t|
-    t.string   "profiel"
     t.string   "naam"
     t.integer  "coverfoto_id"
     t.text     "beschrijving"
@@ -37,7 +36,6 @@ ActiveRecord::Schema.define(:version => 20131203144310) do
     t.text     "contact"
     t.string   "sitelink"
     t.text     "openingstijden"
-    t.string   "hoofddoelgroep"
     t.string   "grootte"
     t.integer  "gemiddeld_aantal_clienten"
     t.integer  "leeftijd_van"
@@ -49,8 +47,9 @@ ActiveRecord::Schema.define(:version => 20131203144310) do
     t.text     "spelregels_vervoer"
     t.string   "tags"
     t.integer  "position"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.boolean  "publiceren",                :default => true
   end
 
   create_table "refinery_images", :force => true do |t|

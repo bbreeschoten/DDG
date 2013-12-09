@@ -1,8 +1,10 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(activity) -%>">
-  <span class='title'>
-    <%= activity.naam %>
+ 
 
-  </span>
+ <span class='title' style="<%= activity.publiceren ? '' : 'color: red; font-style: italic' %>">
+    <%= activity.naam %>
+ </span>
+	
   <span class='actions'>
     
     <%= link_to refinery_icon_tag("application_go.png"), refinery.activities_activity_path(activity),

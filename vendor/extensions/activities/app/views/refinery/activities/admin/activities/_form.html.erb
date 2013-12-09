@@ -2,11 +2,20 @@
   <%= render '/refinery/admin/error_messages',
               :object => @activity,
               :include_object_name => true %>
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.activities.admin.activities.activity'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @activity.naam) -%>
 
 	<div class='field'>
 	  <%= f.label :naam -%>
 	  <%= f.text_field :naam, :class => 'larger widest' -%>
 	</div>
+
+  	<div class='field'>
+	    <%= f.label :publiceren -%>
+	    <%= f.check_box :publiceren, :checked => @activity[:publiceren] -%>
+  	</div>
 
 	<div class="field">
 	  <%= f.label :profielen -%>	
@@ -100,7 +109,7 @@
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.activities.admin.activities.activity'),
-             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @activity.profiel) -%>
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @activity.naam) -%>
 <% end -%>
 
 <% content_for :javascripts do -%>

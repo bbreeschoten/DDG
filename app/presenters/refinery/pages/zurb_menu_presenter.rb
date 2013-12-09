@@ -4,8 +4,10 @@ module Refinery
 
     config_accessor :list_dropdown_css, :list_item_dropdown_css, :list_first_css
 
-    MenuPresenter.menu_tag = :section
-    MenuPresenter.css = "top-bar-section"
+  #  MenuPresenter.menu_tag = :section
+    MenuPresenter.menu_tag = :span
+  #  MenuPresenter.css = "top-bar-section"
+    MenuPresenter.css = ''
     self.list_dropdown_css = "dropdown"
     self.list_item_dropdown_css = "has-dropdown"
     self.list_first_css = nil
