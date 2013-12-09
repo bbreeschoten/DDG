@@ -1,0 +1,34 @@
+<div class="panel radius">
+	<h4>Activiteiten per:</h4>
+	<hr>
+	<h4>Profiel</h4>
+
+	  <% for row in @search.facet(:profile_ids).rows %>
+
+	      <% if params[:profile].blank? %>
+	        <%= link_to row.instance.name, refinery.activities_activities_path(:profile => row.value) %> (<%= row.count %>)
+	      <% else %>
+			<% if row.value.to_s == params[:profile] %>
+		        <strong><%= row.instance.name %></strong> <small>(<%= link_to "verwijder", refinery.activities_activities_path(:profile => nil) %>)</small>
+			<% end %>
+	      <% end %>
+		  <br/>
+	  <% end %>
+	<hr>
+	<h4>Doelgroep</h4>
+
+	  <% for row in @search.facet(:targetgroup_ids).rows %>
+
+	      <% if params[:targetgroup].blank? %>
+			<span data-tooltip class="has-tip tip-left" title="<%= row.instance.name %>">
+	        <%= link_to row.instance.abbreviation, refinery.activities_activities_path(:targetgroup => row.value) %> (<%= row.count %>)
+			</span>
+	      <% else %>
+			<% if row.value.to_s == params[:targetgroup] %>
+		        <strong><%= row.instance.abbreviation %></strong> <small>(<%= link_to "verwijder", refinery.activities_activities_path(:targetgroup => nil) %>)</small>
+			<% end %>
+	      <% end %>
+		  <br/>
+	  <% end %>
+</div>
+	
