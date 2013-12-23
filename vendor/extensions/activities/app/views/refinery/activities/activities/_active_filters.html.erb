@@ -1,0 +1,19 @@
+<% 
+
+html = ""
+@active_facets.each do |fname, fvalue| 
+	name = fvalue
+	name = Profile.find(fvalue).name if fname == :profile
+	desc = "profiel" if fname == :profile
+	name = Targetgroup.find(fvalue).abbreviation if fname == :targetgroup
+	desc = "doelgroep" if fname == :targetgroup
+	desc = "zoekterm" if fname == :search
+	desc = "plaats" if fname == :woonplaats
+	
+	html << "<div class='active_facet radius'>"
+	html << "<small>" + desc + "</small><br/>" + name
+	html << "#{link_to 'X', refinery.activities_activities_path(@active_facets.except(fname))}"			
+	html << "</div>"
+end	
+%>
+<%= raw html %>	

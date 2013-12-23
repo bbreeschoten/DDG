@@ -30,16 +30,18 @@
 			    <ul class="right">
 					<li class="has-form">
 						<%= form_tag refinery.activities_activities_path, :method => :get, :id => 'search_form' do %>
-					  <div class="row collapse">
-						    <div class="large-8 small-9 columns">
-							  <%= text_field_tag :search, params[:search], :placeholder => "zoek activiteit..." %>	
-						    </div>
-						    <div class="large-4 small-3 columns">
-							  <a href="javascript:$('#search_form').submit();" class="button active expand">Zoek</a>	
-						    </div>
-
-					  </div>
-											<% end %>
+						  	<div class="row collapse">
+							    <div class="large-8 small-9 columns">
+								  <%= text_field_tag :search, params[:search], :placeholder => "zoek activiteit..." %>
+								  <%= hidden_field_tag :profile, params[:profile] if params[:profile] %>	
+								  <%= hidden_field_tag :targetgroup, params[:targetgroup] if params[:targetgroup] %>	
+								  <%= hidden_field_tag :woonplaats, params[:woonplaats] if params[:woonplaats] %>	
+							    </div>
+							    <div class="large-4 small-3 columns">
+								  <a href="javascript:$('#search_form').submit();" class="button active expand">Zoek</a>	
+							    </div>
+						  	</div>
+						<% end %>
 					</li>
 					<li class="divider"></li>				
 			        <li class=""><%= link_to "Login", refinery.login_path %></li>

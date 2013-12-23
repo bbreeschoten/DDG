@@ -1,14 +1,25 @@
 
 <% content_for :body do %>
 	<div class="row">
+			
+			<div class="small-12 medium-6 large-3 columns">
+				<h1><%= @page.title %></h1>
 
-	        <div class="small-12 medium-9 large-9 columns">
+			</div>
+		
+			<div class="small-12 medium-6 large-9 columns active_facets">
+				<%= render 'active_filters' %>
+			</div>
+			
+			<hr/>	
+
+	        <div class="small-12 medium-9 columns">
 			    <% @activities.each do |activity| %>
 					  <%= render 'activity_list_item', :activity => activity %>
 			    <% end %>
 			</div>
 		
-			<div class="right hide-for-small medium-3 large-3 columns">
+			<div class="right medium-3 large-3 columns">
 				<%= render 'searchpanel'%>
 			</div>
 	</div>

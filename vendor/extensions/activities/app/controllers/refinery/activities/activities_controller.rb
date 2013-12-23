@@ -4,6 +4,7 @@ module Refinery
 
       before_filter :find_all_activities
       before_filter :find_page
+      before_filter :find_active_facets
 
       def index
         # you can use meta fields from your model instead (e.g. browser_title)
@@ -29,6 +30,8 @@ module Refinery
           with(:profile_ids, params[:profile]) if params[:profile].present?
           facet :targetgroup_ids
           with(:targetgroup_ids, params[:targetgroup]) if params[:targetgroup].present?
+          facet :woonplaats
+          with(:woonplaats, params[:woonplaats]) if params[:woonplaats].present?
           
         end
         @activities = @search.results      
@@ -37,6 +40,15 @@ module Refinery
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/activities").first
       end
+      
+      def find_active_facets
+        @active_facets = {}
+        @active_facets[:search] = params[:search] if params[:search].present?
+        @active_facets[:profile] = params[:profile] if params[:profile].present?
+        @active_facets[:targetgroup] = params[:targetgroup] if params[:targetgroup].present?
+        @active_facets[:woonplaats] = params[:woonplaats] if params[:woonplaats].present?
+      end
+      
 
     end
   end

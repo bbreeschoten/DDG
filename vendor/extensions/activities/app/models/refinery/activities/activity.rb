@@ -26,7 +26,8 @@ module Refinery
       
       searchable do
         boolean :publiceren
-        text :naam, :beschrijving, :woonplaats, :contact, :openingstijden, :voorwaarden, :fysieke_toegankelijkheid, :spelregels_vervoer, :tags, :benodigde_indicatie
+        string :woonplaats
+        text :naam, :beschrijving, :contact, :openingstijden, :voorwaarden, :fysieke_toegankelijkheid, :spelregels_vervoer, :tags, :benodigde_indicatie
         text :profiles do
           profiles.map { |p| p.name + " " + p.abbreviation }
         end

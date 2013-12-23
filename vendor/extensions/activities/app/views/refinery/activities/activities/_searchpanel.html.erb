@@ -1,34 +1,87 @@
+<%
+
+prof_links_aan = ''
+prof_links_uit = ''
+prof_facets_html = ''
+
+for row in @search.facet(:profile_ids).rows
+    if params[:profile].blank?
+		link_facets = @active_facets.merge(:profile => row.value)
+		prof_links_uit << "<li>#{link_to row.instance.name, refinery.activities_activities_path(link_facets)} (#{row.count})</li>"
+    else
+		if row.value.to_s == params[:profile]
+				link_facets = @active_facets.except(:profile)
+				prof_links_aan << "<li>#{link_to row.instance.name, refinery.activities_activities_path(link_facets)} (-)</li>"
+		end
+    end
+end
+
+prof_facets_html << "<h4>Profiel</h4>"
+if prof_links_aan.size > 0
+  prof_facets_html << "<ul class='no-bullet'>#{prof_links_aan}</ul>"
+end
+if prof_links_uit.size > 0
+  prof_facets_html << "<ul class='no-bullet'>#{prof_links_uit}</ul>"
+end
+
+targ_links_aan = ''
+targ_links_uit = ''
+targ_facets_html = ''
+
+for row in @search.facet(:targetgroup_ids).rows
+    if params[:targetgroup].blank?
+		link_facets = @active_facets.merge(:targetgroup => row.value)
+		targ_links_uit << "<li><span data-tooltip class='tip-left' title='#{row.instance.name}'>#{link_to row.instance.abbreviation, refinery.activities_activities_path(link_facets)}</span> (#{row.count})</li>"
+    else
+		if row.value.to_s == params[:targetgroup]
+				link_facets = @active_facets.except(:targetgroup)
+				targ_links_aan << "<li><span data-tooltip class='tip-left' title='#{row.instance.name}'>#{link_to row.instance.abbreviation, refinery.activities_activities_path(link_facets)}</span> (-)</li>"
+		end
+    end
+end
+
+
+targ_facets_html << "<h4>Doelgroep</h4>"
+if targ_links_aan.size > 0
+  targ_facets_html << "<ul class='no-bullet'>#{targ_links_aan}</ul>"
+end
+if targ_links_uit.size > 0
+  targ_facets_html << "<ul class='no-bullet'>#{targ_links_uit}</ul>"
+end
+
+plts_links_aan = ''
+plts_links_uit = ''
+plts_facets_html = ''
+
+for row in @search.facet(:woonplaats).rows
+    if params[:woonplaats].blank?
+		link_facets = @active_facets.merge(:woonplaats => row.value)
+		plts_links_uit << "<li>#{link_to row.value, refinery.activities_activities_path(link_facets)} (#{row.count})</li>"
+    else
+		if row.value.to_s == params[:woonplaats]
+				link_facets = @active_facets.except(:woonplaats)
+				plts_links_aan << "<li>#{link_to row.value, refinery.activities_activities_path(link_facets)} (-)</li>"
+		end
+    end
+end
+
+
+plts_facets_html << "<h4>Plaats</h4>"
+if plts_links_aan.size > 0
+  plts_facets_html << "<ul class='no-bullet'>#{plts_links_aan}</ul>"
+end
+if plts_links_uit.size > 0
+  plts_facets_html << "<ul class='no-bullet'>#{plts_links_uit}</ul>"
+end
+
+
+%>
 <div class="panel radius">
-	<h4>Activiteiten per:</h4>
-	<hr>
-	<h4>Profiel</h4>
-
-	  <% for row in @search.facet(:profile_ids).rows %>
-
-	      <% if params[:profile].blank? %>
-	        <%= link_to row.instance.name, refinery.activities_activities_path(:profile => row.value) %> (<%= row.count %>)
-	      <% else %>
-			<% if row.value.to_s == params[:profile] %>
-		        <strong><%= row.instance.name %></strong> <small>(<%= link_to "verwijder", refinery.activities_activities_path(:profile => nil) %>)</small>
-			<% end %>
-	      <% end %>
-		  <br/>
-	  <% end %>
-	<hr>
-	<h4>Doelgroep</h4>
-
-	  <% for row in @search.facet(:targetgroup_ids).rows %>
-
-	      <% if params[:targetgroup].blank? %>
-			<span data-tooltip class="has-tip tip-left" title="<%= row.instance.name %>">
-	        <%= link_to row.instance.abbreviation, refinery.activities_activities_path(:targetgroup => row.value) %> (<%= row.count %>)
-			</span>
-	      <% else %>
-			<% if row.value.to_s == params[:targetgroup] %>
-		        <strong><%= row.instance.abbreviation %></strong> <small>(<%= link_to "verwijder", refinery.activities_activities_path(:targetgroup => nil) %>)</small>
-			<% end %>
-	      <% end %>
-		  <br/>
-	  <% end %>
+	<%= raw prof_facets_html %>
+	<hr/>
+	<%= raw targ_facets_html %>
+	<hr/>
+	<%= raw plts_facets_html %>
+	<hr/>
 </div>
 	

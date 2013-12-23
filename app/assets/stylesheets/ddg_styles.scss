@@ -2,3 +2,14 @@
     line-height: 1.3em;
 }
 
+.active_facets {
+	margin: 20px 0px;
+}
+
+.active_facet {
+	display: inline;
+	float: left;
+	margin-right: 10px;
+	padding: 3px 6px;
+	border: 1px solid #CCC;
+}
