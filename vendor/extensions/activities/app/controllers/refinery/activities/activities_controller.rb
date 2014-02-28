@@ -15,6 +15,16 @@ module Refinery
       def show
         @activity = Activity.find(params[:id])
 
+        if(@active_facets.size > 0) 
+           @other_activities = @activities
+           @other_title = "Andere activiteiten"
+        else
+           @other_activities = Activity.find_all_by_woonplaats(@activity.woonplaats)
+           @other_title = "Ook in " + @activity.woonplaats
+        end
+        
+        @other_activities.delete_if {|a| a.id == @activity.id}
+        
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @activity in the line below:
         present(@page)
@@ -32,9 +42,9 @@ module Refinery
           with(:targetgroup_ids, params[:targetgroup]) if params[:targetgroup].present?
           facet :woonplaats
           with(:woonplaats, params[:woonplaats]) if params[:woonplaats].present?
-          
+          paginate(:page => params[:page] || 1, :per_page => 3)
         end
-        @activities = @search.results      
+        @activities = @search.results    
       end
 
       def find_page

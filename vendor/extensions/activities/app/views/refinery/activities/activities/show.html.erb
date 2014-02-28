@@ -1,149 +1,110 @@
 <% content_for :body_content_title do %>
   <%= @activity.naam %>
 <% end %>
+<% content_for :side_body do %>
+<% end %>
 
 <% content_for :body do %>
-<section>
-  <h4>Naam</h4>
-  <p>
-    <%=raw @activity.naam %>
-  </p>
-</section>
-  <section>
-    <h4>Profiel</h4>
-    <p>
-		<ul>
-	      <% @activity.profiles.each do |p| %>
-			<li><%= p.name %></li>
-		  <% end %>	
-		</ul>
-    </p>
-  </section>
-  <section>
-    <h4>Coverfoto</h4>
-    <p>
-      <%= image_fu @activity.coverfoto, "400x" %>
-    </p>
-  </section>
-  <section>
-    <h4>Beschrijving</h4>
-    <p>
-      <%=raw @activity.beschrijving %>
-    </p>
-  </section>
-  <section>
-    <h4>Adres</h4>
-    <p>
-      <%=raw @activity.adres %>
-    </p>
-  </section>
-  <section>
-    <h4>Postcode</h4>
-    <p>
-      <%=raw @activity.postcode %>
-    </p>
-  </section>
-  <section>
-    <h4>Woonplaats</h4>
-    <p>
-      <%=raw @activity.woonplaats %>
-    </p>
-  </section>
-  <section>
-    <h4>Contact</h4>
-    <p>
-      <%=raw @activity.contact %>
-    </p>
-  </section>
-  <section>
-    <h4>Sitelink</h4>
-    <p>
-      <%=raw @activity.sitelink %>
-    </p>
-  </section>
-  <section>
-    <h4>Openingstijden</h4>
-    <p>
-      <%=raw @activity.openingstijden %>
-    </p>
-  </section>
-  <section>
-    <h4>Doelgroepen</h4>
-    <p>
-		<ul>
-	      <% @activity.targetgroups.each do |t| %>
-			<li><%= t.name %></li>
-		  <% end %>	
-		</ul>
-    </p>
-  </section>
-  <section>
-    <h4>Grootte</h4>
-    <p>
-      <%=raw @activity.grootte %>
-    </p>
-  </section>
-  <section>
-    <h4>Gemiddeld Aantal Clienten</h4>
-    <p>
-      <%=raw @activity.gemiddeld_aantal_clienten %>
-    </p>
-  </section>
-  <section>
-    <h4>Leeftijd</h4>
-    <p>
-      van <%=raw @activity.leeftijd_van %> tot <%=raw @activity.leeftijd_tot %>
-    </p>
-  </section>
-  <section>
-    <h4>Voorwaarden</h4>
-    <p>
-      <%=raw @activity.voorwaarden %>
-    </p>
-  </section>
-  <section>
-    <h4>Rolstoelvriendelijk</h4>
-    <p>
-      <%=raw @activity.rolstoelvriendelijk %>
-    </p>
-  </section>
-  <section>
-    <h4>Fysieke Toegankelijkheid</h4>
-    <p>
-      <%=raw @activity.fysieke_toegankelijkheid %>
-    </p>
-  </section>
-  <section>
-    <h4>Benodigde Indicatie</h4>
-    <p>
-      <%=raw @activity.benodigde_indicatie %>
-    </p>
-  </section>
-  <section>
-    <h4>Spelregels Vervoer</h4>
-    <p>
-      <%=raw @activity.spelregels_vervoer %>
-    </p>
-  </section>
-  <section>
-    <h4>Tags</h4>
-    <p>
-      <%=raw @activity.tags %>
-    </p>
-  </section>
+<div class="row">
+	<div class="small-12 columns">	
+		<h2>
+		  <%=raw @activity.naam %>
+		<h2>
+	</div>		
+
+	<div class="right panel radius hide-for-small large-3 columns">
+	  <h5><%= @other_title %></h5>
+	  <ul id="activities">
+	    <% @other_activities.each do |activity| %>
+	      <li>
+	        <%= link_to activity.naam, refinery.activities_activity_path(activity) %>
+	      </li>
+	    <% end %>
+	  </ul>
+	  <%= link_to "Alle activiteiten", refinery.activities_activities_path(@active_facets), :class=>"button round" %>	
+	</div>
+	
+	
+	<div class="left small-12 large-9 columns">
+		<div class="row" data-equalizer>
+			    <div class="left panel radius small-12 medium-6 columns"  data-equalizer-watch>
+					<%= if_tag("p", raw(@activity.beschrijving), :class=>nil) %>
+					<%= if_tag("p", raw(@activity.voorwaarden), :class=>nil) %>
+				</div>
+				<div class="right panel radius small-12 medium-6 columns" data-equalizer-watch>
+			      <%= image_fu @activity.coverfoto, "400x" %>
+			    </div>	
+		</div>
+		<div class="row" data-equalizer>
+				<div class="left panel radius small-12 medium-6 columns" data-equalizer-watch>
+					<h5>Profiel<%= "en" if @activity.profiles.count > 1 %></h5>	
+					<ul>
+				      <% @activity.profiles.each do |p| %>
+						<li><%= p.name %></li>
+					  <% end %>	
+					</ul>
+				</div>					
+				<div class="right panel radius small-12 medium-6 columns" data-equalizer-watch>
+					<h5>Doelgroep<%= "en" if @activity.targetgroups.count > 1 %></h5>	
+					<ul>
+				      <% @activity.targetgroups.each do |t| %>
+						<li><%= t.name %></li>
+					  <% end %>	
+					</ul>
+				</div>
+	</div>
+	<div class="row" data-equalizer>
+				<div class="left panel radius small-12 medium-6 columns" data-equalizer-watch>
+				    <h5>Adres</h5>
+				    <p>
+				      <%=raw @activity.adres %><br>
+					  <%=raw @activity.postcode %>&nbsp;&nbsp;<%=raw @activity.woonplaats %>
+				    </p>
+					<p>
+					   Website: <a href="http://<%= raw @activity.sitelink %>" target="_blank"><%=raw @activity.sitelink %></a>	
+					</p>	
+				</div>
+				<div class="right panel radius small-12 medium-6 columns" data-equalizer-watch>
+				    <h5>Contact</h5>
+				    <p>
+				      <%=raw @activity.contact %>
+				    </p>
+				</div>
+	</div>
+	<div class="row" data-equalizer>
+				<div class="left panel radius small-12 medium-6 columns" data-equalizer-watch>
+				    <h5>Openingstijden</h5>
+				    <p>
+				      <%=raw @activity.openingstijden %>
+				    </p>
+
+					<%= if_tag("p", raw(@activity.fysieke_toegankelijkheid), :class=>nil) %>
+	
+				</div>
+				<div class="right panel radius small-12 medium-6 columns" data-equalizer-watch>
+				    <h5>Kenmerken</h5>
+					<ul>
+					    <li>
+					      Capaciteit: <%=raw @activity.grootte %>
+					    </li>
+					    <li>
+					      Gemiddeld aantal clienten: <%=raw @activity.gemiddeld_aantal_clienten %>
+					    </li>
+					    <li>
+					      Leeftijden van <%=raw @activity.leeftijd_van %> tot <%=raw @activity.leeftijd_tot %> jaar
+					    </li>
+					    <li>
+					      Rolstoelvriendelijk: <%=raw @activity.rolstoelvriendelijk %>
+					    </li>
+					</ul>
+				</div>		
+	</div>
+</div>
+
+	
 <% end %>
 
-<% content_for :side_body do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="activities">
-      <% @activities.each do |activity| %>
-        <li>
-          <%= link_to activity.naam, refinery.activities_activity_path(activity) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
+
+
 
 <%= render '/refinery/content_page' %>

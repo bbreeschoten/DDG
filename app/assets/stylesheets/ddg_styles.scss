@@ -1,3 +1,16 @@
+.ddg-apptitle {
+	color: #014B96;
+	font-size: 2em;
+	font-weight: normal;
+	vertical-align: bottom;
+	margin-top: 1.3em;
+	margin-bottom: 0px;
+}
+
+.ddg-title-row {
+	margin-bottom: 1em !important;
+}
+
 .top-bar input, .top-bar .button {
     line-height: 1.3em;
 }
@@ -12,4 +25,37 @@
 	margin-right: 10px;
 	padding: 3px 6px;
 	border: 1px solid #CCC;
+}
+
+div.ddg-footer{
+	font-size: 0.8em;
+	width: 100%;
+	margin: 0;
+	/* position: fixed;
+	bottom: 0; */
+	background-color: #F5DC8A;
+	color: #777;
+	padding: 1em;
+}
+
+div.ddg-footer a{
+	font-size: 0.7em;
+}
+
+div.ddg-footer ul{
+	line-height: 0.8em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #014B96 !important;
+}
+
+#ddg_facetspanel li {
+	font-size: 0.8em;
+}
+
+#ddg_activity_profiles li {
+	font-size: 0.8em;
+	color: #014B96 !important;
+
 }

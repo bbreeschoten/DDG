@@ -25,16 +25,17 @@
 			<%= label_tag dom_id(profile), profile.name, :style => "display:inline" %><br/>
 		<% end %>
 	</div>
-	
 
   <div class='field'>
-    <%= f.label :coverfoto -%>
-    <%= render '/refinery/admin/image_picker',
-               :f => f,
-               :field => :coverfoto_id,
-               :image => @activity.coverfoto,
-               :toggle_image_display => false -%>
-  </div>
+	  <%= f.label :doelgroepen -%>
+	  <%= hidden_field_tag "activity[targetgroup_ids][]", nil%>
+	    <% Targetgroup.all.each do |targetgroup| %>
+	    	<%= check_box_tag "activity[targetgroup_ids][]", targetgroup.id, @activity.targetgroup_ids.include?(targetgroup.id), id: dom_id(targetgroup) %>
+			<%= label_tag dom_id(targetgroup), targetgroup.name, :style => "display:inline" %><br/>
+		<% end %>
+	</div>
+	
+
 
   <div class='field'>
     <%= render '/refinery/admin/wysiwyg',
@@ -63,14 +64,6 @@
     <%= f.text_field :sitelink, :size => '70' -%>
   </div>
 
-  <div class='field'>
-	  <%= f.label :doelgroepen -%>
-	  <%= hidden_field_tag "activity[targetgroup_ids][]", nil%>
-	    <% Targetgroup.all.each do |targetgroup| %>
-	    	<%= check_box_tag "activity[targetgroup_ids][]", targetgroup.id, @activity.targetgroup_ids.include?(targetgroup.id), id: dom_id(targetgroup) %>
-			<%= label_tag dom_id(targetgroup), targetgroup.name, :style => "display:inline" %><br/>
-		<% end %>
-	</div>
 
   <div class='field'>
     <%= f.label :grootte -%>
@@ -97,13 +90,12 @@
   </div>
 
   <div class='field'>
-    <%= f.label :benodigde_indicatie -%>
-    <%= f.text_field :benodigde_indicatie, :size => '8' -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :tags -%>
-    <%= f.text_field :tags, :size => '50' -%>
+    <%= f.label :coverfoto -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :coverfoto_id,
+               :image => @activity.coverfoto,
+               :toggle_image_display => false -%>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,

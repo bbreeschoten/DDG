@@ -1,14 +1,14 @@
 <div class="panel radius">
 	<div class="row">
 		<div class="small-2 columns">
-			<a class="th" href="<%= refinery.activities_activity_path(activity) %>">
+			<a class="th" href="<%= refinery.activities_activity_path(activity, @active_facets) %>">
 				<%= image_fu activity.coverfoto, "100x100" %>
 			</a>
 			<br><br>
-			<center><a href="<%= refinery.activities_activity_path(activity) %>" class="label radius round">info</a></center>
+			<center><a href="<%= refinery.activities_activity_path(activity, @active_facets) %>" class="label radius round">info</a></center>
 		</div>
 		<div class="small-7 columns">
-			<h4><%= link_to activity.naam, refinery.activities_activity_path(activity) %> 
+			<h4><%= link_to activity.naam, refinery.activities_activity_path(activity, @active_facets) %> 
 				<small><%= activity.woonplaats %></small>
 			</h4>
 			<span><%= truncate(strip_tags(activity.beschrijving), length: 100) %></span>	
@@ -24,13 +24,13 @@
 				<% end %>		
 		
 		</div>
-		<div class="small-3 columns">
+		<div id="ddg_activity_profiles" class="small-3 columns">
 			<div class="secondary label">
 				Profielen
 			</div>
 			<ul class="circle">
 			<% activity.profiles.each do |p| %>
-				<li><h6 class='subheader'><%= p.name %></h6></li>
+				<li><%= p.name %></li>
 			<% end %>	
 			</ul>
 			

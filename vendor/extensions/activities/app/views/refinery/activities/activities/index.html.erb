@@ -2,27 +2,28 @@
 <% content_for :body do %>
 	<div class="row">
 			
-			<div class="small-12 medium-6 large-3 columns">
-				<h1><%= @page.title %></h1>
-
-			</div>
 		
-			<div class="small-12 medium-6 large-9 columns active_facets">
+			<div class="right small-12 medium-6 large-9 columns active_facets">
 				<%= render 'active_filters' %>
 			</div>
 			
 			<hr/>	
 
+			<div class="left medium-3 large-3 columns">
+				<%= render 'searchpanel'%>
+			</div>
+
 	        <div class="small-12 medium-9 columns">
 			    <% @activities.each do |activity| %>
 					  <%= render 'activity_list_item', :activity => activity %>
 			    <% end %>
+				<div class="center"> 
+			    	<%= will_paginate @activities %>
+			    </div>
 			</div>
+			
 		
-			<div class="right medium-3 large-3 columns">
-				<%= render 'searchpanel'%>
-			</div>
 	</div>
 <% end %>
 
-<%= render '/refinery/content_page' %> 
+<%= render '/refinery/content_page', :hide_sections => [:body_content_title] %> 

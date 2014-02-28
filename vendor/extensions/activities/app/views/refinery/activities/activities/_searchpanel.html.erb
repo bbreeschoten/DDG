@@ -31,11 +31,11 @@ targ_facets_html = ''
 for row in @search.facet(:targetgroup_ids).rows
     if params[:targetgroup].blank?
 		link_facets = @active_facets.merge(:targetgroup => row.value)
-		targ_links_uit << "<li><span data-tooltip class='tip-left' title='#{row.instance.name}'>#{link_to row.instance.abbreviation, refinery.activities_activities_path(link_facets)}</span> (#{row.count})</li>"
+		targ_links_uit << "<li><span data-tooltip class='tip-right' title='#{row.instance.name}'>#{link_to row.instance.abbreviation, refinery.activities_activities_path(link_facets)}</span> (#{row.count})</li>"
     else
 		if row.value.to_s == params[:targetgroup]
 				link_facets = @active_facets.except(:targetgroup)
-				targ_links_aan << "<li><span data-tooltip class='tip-left' title='#{row.instance.name}'>#{link_to row.instance.abbreviation, refinery.activities_activities_path(link_facets)}</span> (-)</li>"
+				targ_links_aan << "<li><span data-tooltip class='tip-right' title='#{row.instance.name}'>#{link_to row.instance.abbreviation, refinery.activities_activities_path(link_facets)}</span> (-)</li>"
 		end
     end
 end
@@ -76,7 +76,7 @@ end
 
 
 %>
-<div class="panel radius">
+<div id="ddg_facetspanel" class="panel radius">
 	<%= raw prof_facets_html %>
 	<hr/>
 	<%= raw targ_facets_html %>

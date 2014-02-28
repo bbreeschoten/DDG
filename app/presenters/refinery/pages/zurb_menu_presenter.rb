@@ -2,7 +2,7 @@ module Refinery
   module Pages
     class ZurbMenuPresenter < MenuPresenter
 
-    config_accessor :list_dropdown_css, :list_item_dropdown_css, :list_first_css
+    config_accessor :list_dropdown_css, :list_item_dropdown_css, :list_first_css, :selected_css
 
   #  MenuPresenter.menu_tag = :section
     MenuPresenter.menu_tag = :span
@@ -11,6 +11,8 @@ module Refinery
     self.list_dropdown_css = "dropdown"
     self.list_item_dropdown_css = "has-dropdown"
     self.list_first_css = nil
+    self.selected_css = "active"
+  
 
       def render_menu_items(menu_items)
         if menu_items.present?

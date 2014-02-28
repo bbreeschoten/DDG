@@ -19,12 +19,19 @@ Profile.create! :name => "Service en Dienstverlening", :abbreviation => "S&D", :
 Profile.create! :name => "Handel", :abbreviation => "HND", :description => "Handel"
 Profile.create! :name => "Horeca", :abbreviation => "HOR", :description => "Horeca"
 Profile.create! :name => "Kunst en Ambacht", :abbreviation => "K&A", :description => "Kunst en Ambacht"
-Profile.create! :name => "Belevingsgericht", :abbreviation => "BEL", :description => "Belevingsgericht"
+Profile.create! :name => "Koken en Bakken", :abbreviation => "K&B", :description => "Koken en Bakken"
+Profile.create! :name => "Sfeer en Muziek", :abbreviation => "S&M", :description => "Sfeer en Muziek"
+Profile.create! :name => "Sport en Spel", :abbreviation => "S&S", :description => "Sport en Spel"
+Profile.create! :name => "Beleving", :abbreviation => "BEL", :description => "Beleving"
+
+
 
 #load Targetgroups
-Targetgroup.create! :name => "Niet-aangeboren hersenletsel", :abbreviation => "NAH", :description => "Niet-aangeboren hersenletsel"
-Targetgroup.create! :name => "Lichte verstandelijke beperking", :abbreviation => "LVB", :description => "Lichte verstandelijke beperking"
-Targetgroup.create! :name => "Matige verstandelijke beperking", :abbreviation => "MVB", :description => "Matige verstandelijke beperking"
-Targetgroup.create! :name => "Ernstige verstandelijke beperking", :abbreviation => "EVB", :description => "Ernstige verstandelijke beperking"
-Targetgroup.create! :name => "Lichamelijke beperking", :abbreviation => "LB", :description => "Lichamelijke beperking"
-Targetgroup.create! :name => "Ernstig meervoudige beperking", :abbreviation => "MVB", :description => "Ernstig meervoudige beperking"
+Targetgroup.create! :name => "Activiteiten voor kinderen", :abbreviation => "Kinderen", :description => "Activiteiten voor kinderen"
+Targetgroup.create! :name => "Activiteiten/werkzaamheden voor senioren", :abbreviation => "Senioren", :description => "Activiteiten/werkzaamheden voor Senioren"
+Targetgroup.create! :name => "Activiteiten/werkzaamheden voor mensen met niet-aangeboren hersenletsel", :abbreviation => "NAH", :description => "Activiteiten/werkzaamheden voor mensen met niet-aangeboren hersenletsel"
+Targetgroup.create! :name => "Activiteiten/werkzaamheden voor mensen met een licht verstandelijke beperking", :abbreviation => "LVB", :description => "Activiteiten/werkzaamheden voor mensen met een licht verstandelijke beperking"
+Targetgroup.create! :name => "Activiteiten/werkzaamheden voor mensen met een matige verstandelijke beperking", :abbreviation => "MVB", :description => "Activiteiten/werkzaamheden voor mensen met een matige verstandelijke beperking"
+Targetgroup.create! :name => "Activiteiten/werkzaamheden voor mensen met een ernstige verstandelijke beperking", :abbreviation => "EVB", :description => "Activiteiten/werkzaamheden voor mensen met een ernstige verstandelijke beperking"
+Targetgroup.create! :name => "Activiteiten/werkzaamheden voor mensen met een lichamelijke beperking", :abbreviation => "LB", :description => "Activiteiten/werkzaamheden voor mensen met een lichamelijke beperking"
+Targetgroup.create! :name => "Activiteiten voor mensen met een ernstige meervoudige beperking", :abbreviation => "MVB", :description => "Activiteiten voor mensen met een ernstige meervoudige beperking"

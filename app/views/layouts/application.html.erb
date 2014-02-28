@@ -8,18 +8,22 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+	<div class="row ddg-title-row">
+		<div class="small-12 medium-6 large-3 columns">
+			<%= image_tag "logoER.png" %>
+		</div>
+		<div class="ddg-apptitle small-12 medium-6 large-9 columns text-right">	
+			Dagbestedinggids Noord-Holland Noord
+		</div>	
+	</div>	
+	
 	<div class="contain-to-grid">
 		<nav class="top-bar" data-topbar>
-			<ul class="title-area">
-			    <li class="name">
-			    <h1><a href="/">Dagbesteding Gids</a></h1>
-			    </li>
-			    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-			</ul>
 			<section class="top-bar-section">
 				<!-- start zurb_menu -->
 				<%=
@@ -54,6 +58,13 @@
 	<!-- start yield" -->
     <%= yield %>
 	<!-- end yield -->
-    <%= javascript_include_tag "application" %>
+	<div class="row">
+		<div class="ddg-footer twelve columns">
+			<%= render "shared/footer" %>
+		</div>	
+	</div>	
+	
+	
+
   </body>
 </html>
