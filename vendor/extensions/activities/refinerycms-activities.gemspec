@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.summary           = 'Activities extension for Refinery CMS'
   s.require_paths     = %w(lib)
   s.files             = Dir["{app,config,db,lib}/**/*"] + ["readme.md"]
+  s.authors            = 'Bart Breeschoten'
 
   # Runtime dependencies
   s.add_dependency             'refinerycms-core',    '~> 2.1.1'
