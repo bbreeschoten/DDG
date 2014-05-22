@@ -9,6 +9,9 @@ group :development, :test, :production do
   gem 'sqlite3'
 end
 
+group :production do
+  gem 'therubyracer'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
