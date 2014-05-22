@@ -43,7 +43,7 @@ gem "sunspot_solr", "~> 2.1.0"
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
+# To use debugger 
 # gem 'debugger'
 
 # Refinery CMS
