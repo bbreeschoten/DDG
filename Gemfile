@@ -45,9 +45,6 @@ gem "sunspot_solr", "~> 2.1.0"
 # Refinery CMS
 gem 'refinerycms', '~> 2.1.0'
 
-# Zurb Foundation
-gem 'zurb-foundation', '~> 4.3.2'
-
 # Optionally, specify additional Refinery CMS Extensions here:
 gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
 #  gem 'refinerycms-blog', '~> 2.1.0'
