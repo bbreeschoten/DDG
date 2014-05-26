@@ -9,10 +9,6 @@ group :development, :test, :production do
   gem 'sqlite3'
 end
 
-group :production do
-  gem 'therubyracer'
-end
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -48,6 +44,9 @@ gem "sunspot_solr", "~> 2.1.0"
 
 # Refinery CMS
 gem 'refinerycms', '~> 2.1.0'
+
+# Zurb Foundation
+gem 'zurb-foundation', '~> 4.3.2'
 
 # Optionally, specify additional Refinery CMS Extensions here:
 gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
