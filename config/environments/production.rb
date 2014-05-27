@@ -69,13 +69,4 @@ Ddg::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  # needed to get Imagemagick working on the windows server
-  initializer 'override-image-magick-paths', :after => 'attach-refinery-images-with-dragonfly' do
-    app=Dragonfly[:refinery_images]
-    app.configure_with(:imagemagick)
-    app.configure do |c|
-      c.convert_command = "C:/Progra~1/ImageMagick-6.8.9-Q16/convert" # defaults to "convert"
-      c.identify_command = "C:/Progra~1/ImageMagick-6.8.9-Q16/identify"  # defaults to "identify"
-    end
-  end  
 end

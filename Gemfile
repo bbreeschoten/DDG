@@ -5,9 +5,11 @@ gem 'rails', '3.2.15'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test, :production do
-  gem 'sqlite3'
-end
+# postgres
+gem 'pg'
+
+# for heroku
+gem 'rails_12factor', group: :production
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -54,3 +56,5 @@ gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
 #  gem 'refinerycms-page-images', '~> 2.1.0'
 
 gem 'refinerycms-activities', :path => 'vendor/extensions'
+
+ruby '2.0.0'
