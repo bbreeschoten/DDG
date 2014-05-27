@@ -81,6 +81,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.5.2)
+    modernizr-rails (2.7.1)
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
@@ -208,6 +209,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   foundation-rails (~> 5.1.1.0)
   jquery-rails
+  modernizr-rails (~> 2.7.1)
   rails (= 3.2.15)
   refinerycms (~> 2.1.0)
   refinerycms-activities!
