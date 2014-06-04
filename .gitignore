@@ -93,3 +93,23 @@ capybara-*html
 # vendor/extensions dummy applications.
 vendor/extensions/**/spec/dummy
 
+
+log/sunspot-solr-development.log.lck
+
+calhost
+
+*.fdt
+
+*.nvd
+
+*.si
+
+solr/development/data/index/_10_Lucene41_0.doc
+
+solr/development/data/index/_10_Lucene41_0.pos
+
+*.fdt
+
+*.fnm
+
+*.nvd
