@@ -15,7 +15,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'modernizr-rails', '~> 2.7.1'
-  gem 'foundation-rails', '~> 5.1.1.0'
+  gem 'foundation-rails', '~> 5.2.0.0'
   gem 'uglifier', '>= 1.0.3'
 end
 
